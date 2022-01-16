@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react'
 import { useSession } from 'next-auth/react'
 import { ChevronDownIcon, UserCircleIcon } from '@heroicons/react/outline';
 import { shuffle } from 'lodash';
+import { useRecoilValue } from 'recoil';
+import { playlistIdState } from '../atoms/playlistAtom';
 
 const colors = [
   "from-indigo-500",
@@ -18,6 +20,7 @@ const colors = [
 const Center = () => {
   const {data: session} = useSession();
   const [color, setColor] = useState(null);
+  const playlistId = useRecoilValue(playlistIdState);
 
   useEffect(() => {
     setColor(shuffle(colors).pop());
