@@ -12,8 +12,6 @@ import useSpotify from "../hooks/useSpotify";
 import { useRecoilState } from "recoil";
 import { playlistIdState } from "../atoms/playlistAtom";
 
-interface Props {}
-
 const menus = [
   {
     name: "Home",
@@ -29,7 +27,7 @@ const menus = [
   },
 ];
 
-const Sidebar = (props: Props) => {
+const Sidebar = () => {
   const spotifyApi = useSpotify();
   const {data: session, status} = useSession();
   const [playlists, setPlaylists] = useState([]);
@@ -39,7 +37,7 @@ const Sidebar = (props: Props) => {
 
   useEffect(() => {
     if (spotifyApi.getAccessToken()) {
-      spotifyApi.getUserPlaylists().then((data: any) => {
+      spotifyApi.getUserPlaylists().then((data) => {
         setPlaylists(data.body.items);
         console.log(data);
       });
