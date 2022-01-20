@@ -33,10 +33,10 @@ const Center = () => {
   useEffect(() => {
     spotifyApi
       .getPlaylist(playlistId)
-      .then((data: any) => {
+      .then((data) => {
         setPlaylist(data.body);
       })
-      .catch((err: any) => console.log("Something went wrong: ", err));
+      .catch((err) => console.log("Something went wrong: ", err));
   }, [spotifyApi, playlistId]);
 
   console.log(playlist);
