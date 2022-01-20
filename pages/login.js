@@ -1,7 +1,7 @@
 import React from "react";
 import { getProviders, signIn } from "next-auth/react";
 
-export default function login({ providers }: any) {
+export default function login({ providers }) {
   return (
     <div className="flex flex-col items-center justify-center bg-black min-h-screen w-full">
       <img
